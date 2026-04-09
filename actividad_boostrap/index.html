@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Página Bootstrap</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Mi CSS personalizado -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">MiSitio</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menuNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="btnAbrirModal">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== SECCIÓN PRINCIPAL ===== -->
+  <header class="hero text-center py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Bienvenido a mi página</h1>
+      <p class="lead">Actividad práctica final — Bootstrap 5 + JavaScript puro</p>
+      <button class="btn btn-primary btn-lg" id="btnAlerta">Mostrar alerta</button>
+    </div>
+  </header>
+
+  <!-- ===== CARDS ===== -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4">Lo que aprendí</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Bootstrap Grid</h5>
+              <p class="card-text">
+                Aprendí a usar container, row y col para crear layouts
+                responsivos de forma rápida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Componentes</h5>
+              <p class="card-text">
+                Usé navbar, cards y botones que ya vienen listos en Bootstrap,
+                solo hay que personalizar los colores.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">JavaScript</h5>
+              <p class="card-text">
+                Agregué interactividad con JS puro: abrir un modal, mostrar
+                alertas y validar un formulario.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORMULARIO DE INICIO DE SESIÓN ===== -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <h2 class="mb-4 text-center">Iniciar sesión</h2>
+
+          <!-- Mensaje de error (oculto por defecto) -->
+          <div id="mensajeError" class="alert alert-danger d-none" role="alert">
+            Por favor completa todos los campos correctamente.
+          </div>
+
+          <!-- Mensaje de éxito (oculto por defecto) -->
+          <div id="mensajeExito" class="alert alert-success d-none" role="alert">
+            ¡Sesión iniciada con éxito!
+          </div>
+
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+
+              <!-- Formulario — sin etiqueta form para JS puro -->
+              <div class="mb-3">
+                <label for="inputEmail" class="form-label">Correo electrónico</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail"
+                  placeholder="ejemplo@correo.com"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="inputPassword" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputPassword"
+                  placeholder="Mínimo 6 caracteres"
+                />
+              </div>
+
+              <div class="d-grid">
+                <button class="btn btn-primary" id="btnIniciarSesion">
+                  Entrar
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL DE CONTACTO ===== -->
+  <div class="modal fade" id="modalContacto" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Contacto</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <p>Puedes escribirme a: <strong>estudiante@correo.com</strong></p>
+          <p>Este modal se abre con JavaScript y Bootstrap 5.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="bg-primary text-white text-center py-3">
+    <p class="mb-0">Actividad práctica — Bootstrap 5 &copy; 2025</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS (necesario para modal y navbar) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Mi JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
